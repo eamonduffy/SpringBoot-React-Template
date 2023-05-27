@@ -26,6 +26,11 @@ public class Author {
         this.id = id;
     }
 
+    public Author(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "Author [id=" + id + ", name=" + name + ", age=" + age + "]";

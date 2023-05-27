@@ -6,12 +6,14 @@ type Tutorial {
 }
 
 extend type Query {
+    findTutorialByID(id: ID!): Tutorial
     findAllTutorials: [Tutorial]!
     countTutorials: Int!
 }
 
 extend type Mutation {
     createTutorial(title: String!, description: String, author: ID!): Tutorial!
-    updateTutorial(id: ID!, title: String, description: String): Tutorial!
+    # addTutorial(tutorial: TutorialInput!): Tutorial
     deleteTutorial(id: ID!): Boolean
+    updateTutorial(id: ID!, title: String, description: String): Tutorial!
 }
