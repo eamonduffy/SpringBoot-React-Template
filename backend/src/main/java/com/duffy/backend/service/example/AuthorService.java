@@ -51,7 +51,7 @@ public class AuthorService {
     public Author updateAuthor(Integer id, AuthorInput author) {
         Author authorToUpdate = authorRepository.findById(id).orElse(null);
         if (author == null) {
-            throw new RuntimeException("Author not found");
+            throw new RuntimeException("Author not found, use a different ID");
         }
 
         authorToUpdate.setName(author.name());
