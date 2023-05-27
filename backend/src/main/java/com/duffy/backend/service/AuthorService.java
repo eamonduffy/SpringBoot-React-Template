@@ -1,21 +1,28 @@
-package com.duffy.backend.resolver.example;
+package com.duffy.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.duffy.backend.model.example.Author;
 import com.duffy.backend.repository.example.AuthorRepository;
 
-@Component
-public class AuthorMutation implements GraphQLMutationResolver {
+@Service
+public class AuthorService {
 
     @Autowired
-    private AuthorRepository authorRepository;
+    AuthorRepository authorRepository;
 
-    public AuthorMutation(AuthorRepository authorRepository) {
+    public AuthorService(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
+
+    public Iterable<Author> findAllAuthors() {
+        return authorRepository.findAll();
+    }
+
+    // public long countAuthors() {
+    // return authorRepository.count();
+    // }
 
     public Author createAuthor(String name, Integer age) {
         Author author = new Author();

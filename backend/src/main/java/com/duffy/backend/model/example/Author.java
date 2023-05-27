@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -22,7 +22,7 @@ public class Author {
     @Column(name = "age", nullable = false)
     private Integer age;
 
-    public Author(Long id) {
+    public Author(Integer id) {
         this.id = id;
     }
 
