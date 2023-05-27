@@ -3,11 +3,12 @@ package com.duffy.backend.service.example;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.duffy.backend.model.example.Author;
 import com.duffy.backend.model.example.Tutorial;
 import com.duffy.backend.repository.example.TutorialRepository;
 
+@Service
 public class TutorialService {
 
     @Autowired
@@ -21,46 +22,48 @@ public class TutorialService {
         return tutorialRepository.findById(id).orElse(null);
     }
 
-    public Iterable<Tutorial> findAllTutorials() {
-        return tutorialRepository.findAll();
-    }
+    // public Iterable<Tutorial> findAllTutorials() {
+    // return tutorialRepository.findAll();
+    // }
 
-    public long countTutorials() {
-        return tutorialRepository.count();
-    }
+    // public long countTutorials() {
+    // return tutorialRepository.count();
+    // }
 
-    public Tutorial createTutorial(String title, String description, Integer id) {
-        System.out.println("Creating new tutorial");
-        Tutorial tutorial = new Tutorial();
-        tutorial.setTitle(title);
-        tutorial.setAuthor(new Author(id));
-        if (description != null)
-            tutorial.setDescription(description);
+    // public Tutorial createTutorial(String title, String description, Integer id)
+    // {
+    // System.out.println("Creating new tutorial");
+    // Tutorial tutorial = new Tutorial();
+    // tutorial.setTitle(title);
+    // tutorial.setAuthorID(id);
+    // if (description != null)
+    // tutorial.setDescription(description);
 
-        System.out.println("New tutorial being added: " + tutorial);
-        tutorialRepository.save(tutorial);
-        return tutorial;
-    }
+    // System.out.println("New tutorial being added: " + tutorial);
+    // tutorialRepository.save(tutorial);
+    // return tutorial;
+    // }
 
-    public void deleteTutorial(Integer id) {
-        tutorialRepository.deleteById(id);
-    }
+    // public void deleteTutorial(Integer id) {
+    // tutorialRepository.deleteById(id);
+    // }
 
-    public Tutorial updateTutorial(Integer id, String title, String description) {
-        Optional<Tutorial> optTutorial = tutorialRepository.findById(id);
+    // public Tutorial updateTutorial(Integer id, String title, String description)
+    // {
+    // Optional<Tutorial> optTutorial = tutorialRepository.findById(id);
 
-        Tutorial tutorial = new Tutorial();
-        if (optTutorial.isPresent()) {
-            Tutorial tutorialToUpdate = optTutorial.get();
-            if (title != null)
-                tutorialToUpdate.setTitle(title);
-            if (description != null)
-                tutorialToUpdate.setDescription(description);
+    // Tutorial tutorial = new Tutorial();
+    // if (optTutorial.isPresent()) {
+    // Tutorial tutorialToUpdate = optTutorial.get();
+    // if (title != null)
+    // tutorialToUpdate.setTitle(title);
+    // if (description != null)
+    // tutorialToUpdate.setDescription(description);
 
-            tutorialRepository.save(tutorialToUpdate);
-            tutorial = tutorialToUpdate;
-        }
-        return tutorial;
-    }
+    // tutorialRepository.save(tutorialToUpdate);
+    // tutorial = tutorialToUpdate;
+    // }
+    // return tutorial;
+    // }
 
 }

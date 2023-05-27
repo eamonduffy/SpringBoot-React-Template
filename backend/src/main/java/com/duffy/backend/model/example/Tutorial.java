@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Tutorial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "title", nullable = false)
     private String title;
