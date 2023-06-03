@@ -44,8 +44,13 @@ public class AuthorService {
         return author;
     }
 
-    public void deleteAuthor(Integer id) {
-        authorRepository.deleteById(id);
+    public boolean deleteAuthor(Integer id) {
+        if (authorRepository.findById(id).isPresent()) {
+            authorRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public Author updateAuthor(Integer id, AuthorInput author) {

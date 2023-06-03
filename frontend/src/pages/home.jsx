@@ -31,6 +31,7 @@ const Home = () => {
                     color="primary"
                     component={Link}
                     to="/example-apis"
+                    sx={{ marginRight: 2 }}
                 >
                     View Example APIs
                 </Button>

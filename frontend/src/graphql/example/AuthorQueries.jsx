@@ -20,6 +20,29 @@ const authorQueries = {
             }
         }
     `,
+    addAuthor: gql`
+        mutation addAuthor($name: String!, $age: Int!) {
+            addAuthor(author: { name: $name, age: $age }) {
+                id
+                name
+                age
+            }
+        }
+    `,
+    deleteAuthor: gql`
+        mutation deleteAuthor($id: ID!) {
+            deleteAuthor(id: $id)
+        }
+    `,
+    updateAuthor: gql`
+        mutation updateAuthor($id: ID!, $name: String!, $age: Int!) {
+            updateAuthor(id: $id, author: { name: $name, age: $age }) {
+                id
+                name
+                age
+            }
+        }
+    `,
 };
 
 export default authorQueries;
