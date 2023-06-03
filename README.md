@@ -20,7 +20,7 @@ The frontend directory contains the client-side code written in React.js. It han
 
 -   `src/components`: Contains the reusable React components used in the application.
 -   `src/pages`: Contains the main pages of the application, such as the tutorial listing and tutorial details pages.
--   `src/services`: Contains the client-side API service files responsible for making requests to the backend.
+-   `src/graphql`: Contains the client-side GraphQL querires responsible for making requests to the backend.
 -   `src/App.js`: The main entry point for the React application.
 -   `src/index.js`: Renders the root component and sets up the React application.
 
